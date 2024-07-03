@@ -166,7 +166,7 @@ export const Quiz = ({
           numberOfPieces={500}
           tweenDuration={10000}
         />
-        <div className="gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full">
+        <div className="flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full">
           <Image
             src="/finish.svg"
             alt="Finish"
