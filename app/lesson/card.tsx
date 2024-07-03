@@ -58,12 +58,12 @@ export const Card = ({
       {audio}
       {imageSrc && (
         <div
-          className="relative mb-4 w-[80px] h-[80px]"
+          className="relative mb-4 w-[60px] h-[60px]"
         >
           <Image
             src={imageSrc}
-            width={80}
-            height={80}
+            width={40}
+            height={40}
             alt={text}
             style={{ objectFit: 'cover', width: '80px', height: '80px' }}
           />
