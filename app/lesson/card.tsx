@@ -59,12 +59,11 @@ export const Card = ({
         </div>
       )}
       <div className={cn(
-        "flex items-center justify-center",
-        type === "ASSIST" ? "flex-row-reverse w-full" : "flex-col"
+        "flex items-center justify-between w-full",
+        type === "ASSIST" && "flex-row-reverse"
       )}>
-        {type === "ASSIST" && <div />}
         <p className={cn(
-          "text-neutral-600 text-sm lg:text-base text-center",
+          "text-neutral-600 text-sm lg:text-base text-center w-full",
           selected && "text-sky-500",
           selected && status === "correct" && "text-green-500",
           selected && status === "wrong" && "text-rose-500"
