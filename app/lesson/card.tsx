@@ -54,11 +54,14 @@ export const Card = ({
     >
       {audio}
       {imageSrc && (
-        <div className="relative aspect-square mb-4 w-full max-w-[80px] lg:max-w-[150px]">
+        <div className="relative aspect-square mb-4 mx-auto w-full max-w-[80px] lg:max-w-[150px]">
           <Image src={imageSrc} layout="fill" objectFit="cover" alt={text} />
         </div>
       )}
-      <div className={cn("flex items-center justify-between", type === "ASSIST" && "flex-row-reverse")}>
+      <div className={cn(
+        "flex items-center justify-center flex-col",
+        type === "ASSIST" && "flex-row-reverse"
+      )}>
         {type === "ASSIST" && <div />}
         <p className={cn(
           "text-neutral-600 text-sm lg:text-base",
