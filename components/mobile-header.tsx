@@ -7,7 +7,7 @@ export const MobileHeader = () => {
             <MobileSidebar />
             <div className="flex-grow flex justify-center">
                 <a href="/">
-                    <Image src="/logodazaga.png" height={50} width={50} alt="Logo" />
+                    <Image src="/logodazaga.png" height={40} width={40} alt="Logo" />
                 </a>
             </div>
         </nav>
