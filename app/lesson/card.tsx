@@ -62,8 +62,8 @@ export const Card = ({
         >
           <Image
             src={imageSrc}
-            width={40}
-            height={40}
+            width={100}
+            height={100}
             alt={text}
             style={{ objectFit: 'cover', width: '80px', height: '80px' }}
           />
