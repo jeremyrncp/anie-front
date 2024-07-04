@@ -74,7 +74,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the woman"?',
+                question: 'Complete the sentence : .......... !',
                 order: 2,
               },
               {
