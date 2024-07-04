@@ -25,11 +25,8 @@ const main = async () => {
     const courses = await db
       .insert(schema.courses)
       .values([
-        { title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
-        { title: "Yoruba", imageSrc: "/YorubaFlag.png" },
-        { title: "Amharic", imageSrc: "/AmharicFlag.png" },
-        { title: "Igbo", imageSrc: "/IgboFlag.png" },
-        { title: "Dazaga", imageSrc: "/DazagaFlag.png" },
+        { id: 1, title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
+        { id: 2, title: "Yoruba", imageSrc: "/YorubaFlag.png" },
       ])
       .returning();
 
@@ -58,11 +55,8 @@ const main = async () => {
         const lessons = await db
           .insert(schema.lessons)
           .values([
-            { unitId: unit.id, title: "Nouns", order: 1 },
-            { unitId: unit.id, title: "Verbs", order: 2 },
-            { unitId: unit.id, title: "Adjectives", order: 3 },
-            { unitId: unit.id, title: "Phrases", order: 4 },
-            { unitId: unit.id, title: "Sentences", order: 5 },
+            { unitId: unit.id, title: "Greetings", order: 1 },
+            { unitId: unit.id, title: "Personal Introduction", order: 2 },
           ])
           .returning();
 
@@ -74,7 +68,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the man"?',
+                question: 'Habari !',
                 order: 1,
               },
               {
@@ -129,23 +123,9 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "Mwanaume",
-                  imageSrc: "/man.png",
-                  audioSrc: "/sw_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mke",
-                  imageSrc: "/woman.png",
-                  audioSrc: "/sw_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mvulana",
-                  imageSrc: "/boy.png",
-                  audioSrc: "/sw_boy.mp3",
+                  text: "Habari",
+                  imageSrc: "/Habari.png",
+                  audioSrc: "/sw_habari.mp3",
                 },
               ]);
             }
@@ -154,24 +134,15 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
+                  correct: false,
+                  text: "Habali",
+                  audioSrc: "/sw_habali.mp3",
+                },
+                {
+                  challengeId: challenge.id,
                   correct: true,
-                  text: "Mke",
-                  imageSrc: "/woman.png",
-                  audioSrc: "/sw_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mvulana",
-                  imageSrc: "/boy.png",
-                  audioSrc: "/sw_boy.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mwanaume",
-                  imageSrc: "/man.png",
-                  audioSrc: "/sw_man.mp3",
+                  text: "Habari",
+                  audioSrc: "/sw_habari.mp3",
                 },
               ]);
             }
