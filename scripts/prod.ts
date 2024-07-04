@@ -152,9 +152,9 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "Mke",
-                  imageSrc: "/Mynameis.png",
-                  audioSrc: "/sw_mynameis.mp3",
+                  text: "Jina langu ni Tendaji",
+                  imageSrc: "/my_name_is.png",
+                  audioSrc: "/sw_jina_langu_ni_Tendaji.mp3",
                 },
               ]);
             }
