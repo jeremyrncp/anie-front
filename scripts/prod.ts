@@ -80,7 +80,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'My Name is Tendaji : Jina langu ni Tendaji.',
+                question: 'Jina langu ni Tendaji.',
                 order: 3,
               },
               {
@@ -152,7 +152,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "Jina langu ni Tendaji",
+                  text: "My name is Tendaji",
                   imageSrc: "/my_name_is.png",
                   audioSrc: "/sw_jina_langu_ni_Tendaji.mp3",
                 },
