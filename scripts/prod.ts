@@ -68,7 +68,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Habari !',
+                question: 'New expression',
                 order: 1,
               },
               {
@@ -135,7 +135,7 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "Habali",
+                  text: "Habali !",
                   audioSrc: "/sw_habali.mp3",
                 },
                 {
