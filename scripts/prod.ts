@@ -80,13 +80,13 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the boy"?',
+                question: 'My Name is Tendaji : Jina langu ni Tendaji.',
                 order: 3,
               },
               {
                 lessonId: lesson.id,
-                type: "ASSIST",
-                question: '"the man"',
+                type: "SELECT",
+                question: 'Complete the sentence : Jina .......... Tendaji !',
                 order: 4,
               },
               {
@@ -153,22 +153,8 @@ const main = async () => {
                   challengeId: challenge.id,
                   correct: false,
                   text: "Mke",
-                  imageSrc: "/woman.png",
-                  audioSrc: "/sw_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mwanaume",
-                  imageSrc: "/man.png",
-                  audioSrc: "/sw_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "Mvulana",
-                  imageSrc: "/boy.png",
-                  audioSrc: "/sw_boy.mp3",
+                  imageSrc: "/Mynameis.png",
+                  audioSrc: "/sw_mynameis.mp3",
                 },
               ]);
             }
@@ -178,20 +164,14 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "Mke",
-                  audioSrc: "/sw_woman.mp3",
+                  text: "lanu ni",
+                  audioSrc: "/sw_lanu_ni.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "Mwanaume",
-                  audioSrc: "/sw_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mvulana",
-                  audioSrc: "/sw_boy.mp3",
+                  text: "langu ni",
+                  audioSrc: "/sw_langu_ni.mp3",
                 },
               ]);
             }
