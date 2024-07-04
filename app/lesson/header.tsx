@@ -20,8 +20,8 @@ export const Header = ({
     <header className="lg:pt-[50px] pt-[20px] px-10 flex gap-x-7 items-center justify-between max-w-[1140px] mx-auto w-full">
       <Image
         src="/logodazaga.png"
-        height={25} // Ajustez la taille selon vos besoins
-        width={25} // Ajustez la taille selon vos besoins
+        height={35}
+        width={35}
         alt="Logo Dazaga"
         className="mr-4"
       />
