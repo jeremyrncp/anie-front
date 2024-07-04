@@ -151,7 +151,7 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
-                  correct: false,
+                  correct: true,
                   text: "Jina langu ni Tendaji",
                   imageSrc: "/my_name_is.png",
                   audioSrc: "/sw_jina_langu_ni_Tendaji.mp3",
