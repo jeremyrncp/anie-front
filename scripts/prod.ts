@@ -14,13 +14,11 @@ const main = async () => {
 
     // Delete all existing data
     await Promise.all([
-      db.delete(schema.userProgress),
       db.delete(schema.challenges),
       db.delete(schema.units),
       db.delete(schema.lessons),
       db.delete(schema.courses),
       db.delete(schema.challengeOptions),
-      db.delete(schema.userSubscription),
     ]);
 
     // Insert courses
@@ -28,6 +26,10 @@ const main = async () => {
       .insert(schema.courses)
       .values([
         { title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
+        { title: "Yoruba", imageSrc: "/YorubaFlag.png" },
+        { title: "Amharic", imageSrc: "/YorubaFlag.png" },
+        { title: "Igbo", imageSrc: "/YorubaFlag.png" },
+        { title: "Dazaga", imageSrc: "/DazagaFlag.png" },
       ])
       .returning();
 
