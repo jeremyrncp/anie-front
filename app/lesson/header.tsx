@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { InfinityIcon, X } from "lucide-react";
-
 import { Progress } from "@/components/ui/progress";
 import { useExitModal } from "@/store/use-exit-modal";
 
@@ -38,6 +37,13 @@ export const Header = ({
           hearts
         )}
       </div>
+      <Image
+        src="/logodazaga.png"
+        height={20}
+        width={20}
+        alt="Logo"
+        className="ml-auto"
+      />
     </header>
   );
 };
