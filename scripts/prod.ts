@@ -27,8 +27,8 @@ const main = async () => {
       .values([
         { title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
         { title: "Yoruba", imageSrc: "/YorubaFlag.png" },
-        { title: "Amharic", imageSrc: "/YorubaFlag.png" },
-        { title: "Igbo", imageSrc: "/YorubaFlag.png" },
+        { title: "Amharic", imageSrc: "/AmharicFlag.png" },
+        { title: "Igbo", imageSrc: "/IgboFlag.png" },
         { title: "Dazaga", imageSrc: "/DazagaFlag.png" },
       ])
       .returning();
