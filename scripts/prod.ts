@@ -204,55 +204,6 @@ const main = async () => {
                 },
               ]);
             }
-
-            if (challenge.order === 7) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "Msichana",
-                  imageSrc: "/girl.png",
-                  audioSrc: "/sw_girl.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Zombie",
-                  imageSrc: "/zombie.png",
-                  audioSrc: "/sw_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mwanaume",
-                  imageSrc: "/man.png",
-                  audioSrc: "/sw_man.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 8) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mke",
-                  audioSrc: "/sw_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "Zombie",
-                  audioSrc: "/sw_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mvulana",
-                  audioSrc: "/sw_boy.mp3",
-                },
-              ]);
-            }
           }
         }
       }
