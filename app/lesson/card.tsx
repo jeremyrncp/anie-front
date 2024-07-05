@@ -58,7 +58,7 @@ export const Card = ({
       {audio}
       {imageSrc && (
         <div
-          className="h-[100px] w-[100px] bg-center"
+          className="h-[100px] w-[100px]"
         >
           <Image src={imageSrc} fill alt={text} />
         </div>
