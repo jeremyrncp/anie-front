@@ -92,7 +92,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the zombie"?',
+                question: 'Jina lako nani ?',
                 order: 5,
               },
               {
@@ -180,24 +180,10 @@ const main = async () => {
               await db.insert(schema.challengeOptions).values([
                 {
                   challengeId: challenge.id,
-                  correct: false,
-                  text: "Mwanaume",
-                  imageSrc: "/man.png",
-                  audioSrc: "/sw_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mke",
-                  imageSrc: "/woman.png",
-                  audioSrc: "/sw_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
                   correct: true,
-                  text: "Zombie",
-                  imageSrc: "/zombie.png",
-                  audioSrc: "/sw_zombie.mp3",
+                  text: "What's your name ?",
+                  imageSrc: "/whatsyourname.png",
+                  audioSrc: "/sw_jina_lako_nani.mp3",
                 },
               ]);
             }
@@ -207,23 +193,14 @@ const main = async () => {
                 {
                   challengeId: challenge.id,
                   correct: true,
-                  text: "Roboti",
-                  imageSrc: "/robot.png",
-                  audioSrc: "/sw_robot.mp3",
+                  text: "jina lako",
+                  audioSrc: "/sw_jina_lako.mp3",
                 },
                 {
                   challengeId: challenge.id,
                   correct: false,
-                  text: "Zombie",
-                  imageSrc: "/zombie.png",
-                  audioSrc: "/sw_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "Mvulana",
-                  imageSrc: "/boy.png",
-                  audioSrc: "/sw_boy.mp3",
+                  text: "jena lako",
+                  audioSrc: "/sw_jena lako.mp3",
                 },
               ]);
             }
