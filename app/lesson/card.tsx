@@ -58,9 +58,9 @@ export const Card = ({
       {audio}
       {imageSrc && (
         <div
-          className="relative aspect-square mb-4 max-h-[80px] lg:max-h-[150px] w-full"
+          className="relative aspect-square mb-4 w-[100px] h-[100px] lg:max-h-[150px] lg:w-full"
         >
-          <Image src={imageSrc} fill alt={text} />
+          <Image src={imageSrc} fill alt={text} className="object-cover"/>
         </div>
       )}
       <div className={cn(
