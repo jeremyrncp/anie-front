@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { challengeOptions, challenges } from "@/db/schema";
-
 import { Card } from "./card";
 
 type Props = {
@@ -24,7 +23,8 @@ export const Challenge = ({
     <div className={cn(
       "grid gap-2",
       type === "ASSIST" && "grid-cols-1",
-      type === "SELECT" && "grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]"
+      type === "SELECT" && (options.length === 1 ? "grid-cols-1" : "grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]"),
+      options.length === 1 && "justify-center items-center"
     )}>
       {options.map((option, i) => (
         <Card
