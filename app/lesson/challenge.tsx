@@ -20,11 +20,14 @@ export const Challenge = ({
   disabled,
   type,
 }: Props) => {
+  const isSingleOption = options.length === 1;
+
   return (
     <div className={cn(
       "grid gap-2",
-      options.length === 1 ? "place-items-center" : type === "ASSIST" && "grid-cols-1",
-      options.length !== 1 && type === "SELECT" && "grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]"
+      type === "ASSIST" && "grid-cols-1",
+      type === "SELECT" && "grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]",
+      isSingleOption && "place-items-center" // Center the card if there's only one
     )}>
       {options.map((option, i) => (
         <Card
@@ -39,6 +42,9 @@ export const Challenge = ({
           audioSrc={option.audioSrc}
           disabled={disabled}
           type={type}
+          className={cn(
+            isSingleOption && "w-80 h-auto" // Increase size if there's only one option on small screens
+          )}
         />
       ))}
     </div>
