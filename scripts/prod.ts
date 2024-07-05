@@ -98,7 +98,7 @@ const main = async () => {
               {
                 lessonId: lesson.id,
                 type: "SELECT",
-                question: 'Which one of these is "the robot"?',
+                question: 'Complete the sentence : .......... nani ?',
                 order: 6,
               },
               {
@@ -200,7 +200,7 @@ const main = async () => {
                   challengeId: challenge.id,
                   correct: false,
                   text: "jena lako",
-                  audioSrc: "/sw_jena lako.mp3",
+                  audioSrc: "/sw_jena_lako.mp3",
                 },
               ]);
             }
