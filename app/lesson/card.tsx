@@ -58,11 +58,18 @@ export const Card = ({
       {audio}
       {imageSrc && (
         <div
-          className="relative aspect-square mb-4 max-h-[80px] lg:max-h-[150px] w-full"
+          className="relative mb-4 w-[80px] h-[80px]"
         >
-          <Image src={imageSrc} fill alt={text} />
+          <Image
+            src={imageSrc}
+            width={80}
+            height={80}
+            alt={text}
+            style={{ objectFit: 'cover', width: '80px', height: '80px' }}
+          />
         </div>
       )}
+
       <div className={cn(
         "flex items-center justify-between",
         type === "ASSIST" && "flex-row-reverse",

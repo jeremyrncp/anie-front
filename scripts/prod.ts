@@ -101,18 +101,6 @@ const main = async () => {
                 question: 'Complete the sentence : .......... nani ?',
                 order: 6,
               },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the girl"?',
-                order: 7,
-              },
-              {
-                lessonId: lesson.id,
-                type: "ASSIST",
-                question: '"the zombie"',
-                order: 8,
-              },
             ])
             .returning();
 
