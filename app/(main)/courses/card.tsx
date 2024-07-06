@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -28,20 +27,21 @@ export const Card = ({
         disabled && "pointer-events-none opacity-50"
       )}
     >
-      <div className="min-[24px] w-full flex items-center justify-end">
-        {active && (
-          <div className="rounded-md bg-green-200 flex items-center justify-center p-1.5">
-            <Check className="text-white stroke-[4] h-4 w-4" />
-          </div>
-        )}
+      <div className="w-full flex items-center justify-end">
+        <div className="rounded-full bg-green-200 flex items-center justify-center p-1.5"
+          style={{ visibility: active ? 'visible' : 'hidden' }}>
+          <Check className="text-white stroke-[4] h-4 w-4" />
+        </div>
       </div>
-      <Image
-        src={imageSrc}
-        alt={title}
-        height={70}
-        width={93.33}
-        className="rounded-full drop-shadow-md border object-cover"
-      />
+      <div className="flex justify-center items-center" style={{ height: '100px', width: '100px' }}>
+        <Image
+          src={imageSrc}
+          alt={title}
+          height={70}
+          width={93.33}
+          className="rounded-2xl drop-shadow-md border object-cover"
+        />
+      </div>
       <p className="text-neutral-700 text-center font-bold mt-3">
         {title}
       </p>
