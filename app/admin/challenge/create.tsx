@@ -12,14 +12,9 @@ export const ChallengeCreate = () => {
         <SelectInput
           source="type"
           choices={[
-            {
-              id: "SELECT",
-              name: "SELECT",
-            },
-            {
-              id: "ASSIST",
-              name: "ASSIST",
-            }
+            { id: "SELECT", name: "SELECT" },
+            { id: "ASSIST", name: "ASSIST" },
+            { id: "ORDER", name: "ORDER" }
           ]}
           validate={[required()]} 
         />

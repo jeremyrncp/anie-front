@@ -9,14 +9,9 @@ export const ChallengeList = () => {
         <SelectField
           source="type"
           choices={[
-            {
-              id: "SELECT",
-              name: "SELECT",
-            },
-            {
-              id: "ASSIST",
-              name: "ASSIST",
-            }
+            { id: "SELECT", name: "SELECT" },
+            { id: "ASSIST", name: "ASSIST" },
+            { id: "ORDER", name: "ORDER" }
           ]}
         />
         <ReferenceField source="lessonId" reference="lessons" />
