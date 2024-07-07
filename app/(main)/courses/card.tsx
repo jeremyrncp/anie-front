@@ -1,89 +1,50 @@
 import Image from "next/image";
-import { useCallback } from "react";
-import { useAudio, useKey } from "react-use";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { challenges } from "@/db/schema";
 
 type Props = {
+  title: string;
   id: number;
-  imageSrc: string | null;
-  audioSrc: string | null;
-  text: string;
-  shortcut: string;
-  selected?: boolean;
-  onClick: () => void;
+  imageSrc: string;
+  onClick: (id: number) => void;
   disabled?: boolean;
-  status?: "correct" | "wrong" | "none";
-  type: typeof challenges.$inferSelect["type"];
-  order?: number; // Ajout de la propriété order
+  active?: boolean;
 };
 
 export const Card = ({
+  title,
   id,
   imageSrc,
-  audioSrc,
-  text,
-  shortcut,
-  selected,
-  onClick,
-  status,
   disabled,
-  type,
-  order,
+  onClick,
+  active,
 }: Props) => {
-  const [audio, _, controls] = useAudio({ src: audioSrc || "" });
-
-  const handleClick = useCallback(() => {
-    if (disabled) return;
-
-    controls.play();
-    onClick();
-  }, [disabled, onClick, controls]);
-
-  useKey(shortcut, handleClick, {}, [handleClick]);
-
   return (
     <div
-      onClick={handleClick}
+      onClick={() => onClick(id)}
       className={cn(
-        "h-full border-2 rounded-xl border-b-4 hover:bg-black/5 p-4 lg:p-6 cursor-pointer active:border-b-2 flex flex-col items-center",
-        selected && "border-sky-300 bg-sky-100 hover:bg-sky-100",
-        selected && status === "correct" && "border-green-300 bg-green-100 hover:bg-green-100",
-        selected && status === "wrong" && "border-rose-300 bg-rose-100 hover:bg-rose-100",
-        disabled && "pointer-events-none hover:bg-white",
-        type === "ASSIST" && "lg:p-3 w-full"
+        "h-full border-2 rounded-3xl border-b-4 hover:bg-black/5 cursor-pointer active:border-b-2 flex flex-col items-center justify-between p-3 pb-6 min-h-[217px] min-w-[200px]",
+        disabled && "pointer-events-none opacity-50"
       )}
     >
-      {audio}
-      {imageSrc && (
-        <div className="relative aspect-square rounded-md mb-4 mx-auto w-full max-w-[200px] lg:max-w-[200px]">
-          <Image src={imageSrc} layout="fill" objectFit="cover" alt={text} className="rounded-md" />
-        </div>
-      )}
-      <div className={cn(
-        "flex items-center justify-between w-full",
-        type === "ASSIST" && "flex-row-reverse"
-      )}>
-        <p className={cn(
-          "text-neutral-600 text-sm lg:text-base text-center w-full",
-          selected && "text-sky-500",
-          selected && status === "correct" && "text-green-500",
-          selected && status === "wrong" && "text-rose-500"
-        )}>
-          {text}
-        </p>
-        {type === "ORDER" && order !== undefined && (
-          <div className="text-lg font-bold">{order + 1}</div>
-        )}
-        <div className={cn(
-          "lg:w-[30px] lg:h-[30px] w-[20px] h-[20px] border-2 flex items-center justify-center rounded-lg text-neutral-400 lg:text-[15px] text-xs font-semibold",
-          selected && "border-sky-300 text-sky-500",
-          selected && status === "correct" && "border-green-500 text-green-500",
-          selected && status === "wrong" && "border-rose-500 text-rose-500"
-        )}>
-          {shortcut}
+      <div className="w-full flex items-center justify-end">
+        <div className="rounded-full bg-green-200 flex items-center justify-center p-1.5"
+          style={{ visibility: active ? 'visible' : 'hidden' }}>
+          <Check className="text-white stroke-[4] h-4 w-4" />
         </div>
       </div>
+      <div className="flex justify-center items-center" style={{ height: '100px', width: '100px' }}>
+        <Image
+          src={imageSrc}
+          alt={title}
+          height={70}
+          width={93.33}
+          className="rounded-2xl drop-shadow-md border object-cover"
+        />
+      </div>
+      <p className="text-neutral-700 text-center font-bold mt-3">
+        {title}
+      </p>
     </div>
   );
 };

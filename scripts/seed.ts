@@ -5,6 +5,7 @@ import { neon } from "@neondatabase/serverless";
 import * as schema from "../db/schema";
 
 const sql = neon(process.env.DATABASE_URL!); 
+// @ts-ignore
 const db = drizzle(sql, { schema });
 
 const main = async () => {
@@ -23,7 +24,7 @@ const main = async () => {
     await db.insert(schema.courses).values([
       {
         id: 1,
-        title: "Swahili",
+        title: "Sawhili",
         imageSrc: "/SwahiliFlag.jpg",
       },
       {
@@ -65,7 +66,25 @@ const main = async () => {
         unitId: 1, // Unit 1 (Learn the basics...)
         order: 2,
         title: "Verbs",
-      }
+      },
+      {
+        id: 3,
+        unitId: 1, // Unit 1 (Learn the basics...)
+        order: 3,
+        title: "Verbs",
+      },
+      {
+        id: 4,
+        unitId: 1, // Unit 1 (Learn the basics...)
+        order: 4,
+        title: "Verbs",
+      },
+      {
+        id: 5,
+        unitId: 1, // Unit 1 (Learn the basics...)
+        order: 5,
+        title: "Verbs",
+      },
     ]);
 
     await db.insert(schema.challenges).values([
@@ -89,13 +108,6 @@ const main = async () => {
         type: "SELECT",
         order: 3,
         question: 'Which one of these is the "the robot"?',
-      },
-      {
-        id: 4,
-        lessonId: 1, // Nouns
-        type: "ORDER",
-        order: 4,
-        question: 'Arrange the letters to form the word "robot"',
       },
     ]);
 
@@ -168,34 +180,29 @@ const main = async () => {
       },
     ]);
 
-    await db.insert(schema.challengeOptions).values([
+    await db.insert(schema.challenges).values([
       {
-        challengeId: 4, // Arrange the letters to form the word "robot"
-        text: "R",
-        correct: true,
+        id: 4,
+        lessonId: 2, // Verbs
+        type: "SELECT",
+        order: 1,
+        question: 'Which one of these is the "the man"?',
       },
       {
-        challengeId: 4,
-        text: "O",
-        correct: true,
+        id: 5,
+        lessonId: 2, // Verbs
+        type: "ASSIST",
+        order: 2,
+        question: '"the man"',
       },
       {
-        challengeId: 4,
-        text: "B",
-        correct: true,
-      },
-      {
-        challengeId: 4,
-        text: "O",
-        correct: true,
-      },
-      {
-        challengeId: 4,
-        text: "T",
-        correct: true,
+        id: 6,
+        lessonId: 2, // Verbs
+        type: "SELECT",
+        order: 3,
+        question: 'Which one of these is the "the robot"?',
       },
     ]);
-
     console.log("Seeding finished");
   } catch (error) {
     console.error(error);
@@ -204,3 +211,4 @@ const main = async () => {
 };
 
 main();
+

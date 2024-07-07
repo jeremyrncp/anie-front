@@ -19,7 +19,7 @@ import { Challenge } from "./challenge";
 import { ResultCard } from "./result-card";
 import { QuestionBubble } from "./question-bubble";
 
-type Props = {
+type Props ={
   initialPercentage: number;
   initialHearts: number;
   initialLessonId: number;
@@ -77,7 +77,6 @@ export const Quiz = ({
   });
 
   const [selectedOption, setSelectedOption] = useState<number>();
-  const [selectedOrder, setSelectedOrder] = useState<number[]>([]);
   const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
 
   const challenge = challenges[activeIndex];
@@ -91,20 +90,14 @@ export const Quiz = ({
     if (status !== "none") return;
 
     setSelectedOption(id);
-
-    if (challenge.type === "ORDER") {
-      const newOrder = [...selectedOrder, id];
-      setSelectedOrder(newOrder);
-    }
   };
 
   const onContinue = () => {
-    if (challenge.type === "ORDER" && selectedOrder.length !== options.length) return;
+    if (!selectedOption) return;
 
     if (status === "wrong") {
       setStatus("none");
       setSelectedOption(undefined);
-      setSelectedOrder([]);
       return;
     }
 
@@ -112,18 +105,16 @@ export const Quiz = ({
       onNext();
       setStatus("none");
       setSelectedOption(undefined);
-      setSelectedOrder([]);
       return;
     }
 
     const correctOption = options.find((option) => option.correct);
-    const isCorrectOrder = challenge.type === "ORDER" && selectedOrder.every((id, index) => options[index].id === id);
 
-    if (!correctOption && !isCorrectOrder) {
+    if (!correctOption) {
       return;
     }
 
-    if ((correctOption && correctOption.id === selectedOption) || isCorrectOrder) {
+    if (correctOption.id === selectedOption) {
       startTransition(() => {
         upsertChallengeProgress(challenge.id)
           .then((response) => {
