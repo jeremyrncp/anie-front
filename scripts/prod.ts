@@ -114,7 +114,7 @@ const main = async () => {
                     challengeId: challenge.id,
                     correct: true,
                     text: "Habari",
-                    imageSrc: "/Habari.png",
+                    imageSrc: "/hello.png",
                     audioSrc: "/sw_habari.mp3",
                   },
                 ]);
