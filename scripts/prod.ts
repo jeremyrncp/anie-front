@@ -373,8 +373,8 @@ const main = async () => {
                   {
                     challengeId: challenge.id,
                     correct: true,
-                    text: "Bawo",
-                    imageSrc: "/Bawo.png",
+                    text: "Bawo !",
+                    imageSrc: "/hello.png",
                     audioSrc: "/yo_bawo.mp3",
                   },
                 ]);
@@ -404,7 +404,7 @@ const main = async () => {
                     correct: true,
                     text: "My name is Durojaiye.",
                     imageSrc: "/my_name_is.png",
-                    audioSrc: "/yo_oruko_mi_ni_Durojaiye.mp3",
+                    audioSrc: "yo_oruko_mi_ni_durojaiye.mp3"
                   },
                 ]);
               }

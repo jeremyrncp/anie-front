@@ -23,7 +23,8 @@ export const Header = ({
         height={35}
         width={35}
         alt="Logo Dazaga"
-        className="mr-4"
+        className="mr-4 cursor-pointer"
+        onClick={open}
       />
       <X
         onClick={open}
