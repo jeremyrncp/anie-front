@@ -14,11 +14,14 @@ const main = async () => {
 
     // Delete all existing data
     await Promise.all([
-      db.delete(schema.challenges),
+      db.delete(schema.courses),
+      db.delete(schema.userProgress),
       db.delete(schema.units),
       db.delete(schema.lessons),
-      db.delete(schema.courses),
+      db.delete(schema.challenges),
       db.delete(schema.challengeOptions),
+      db.delete(schema.challengeProgress),
+      db.delete(schema.userSubscription),
     ]);
 
     // Insert courses
@@ -273,7 +276,7 @@ const main = async () => {
                     challengeId: challenge.id,
                     correct: true,
                     text: "I am from Tanzania.",
-                    imageSrc:"/fromtanzania.png",
+                    imageSrc: "/fromtanzania.png",
                     audioSrc: "/sw_ninatoka_Tanzania.mp3",
                   },
                 ]);
@@ -326,320 +329,317 @@ const main = async () => {
             }
           }
 
-          for (const lesson of lessons) {
-            let challenges = [];
-            if (course.title === "Swahili" && lesson.title === "The drink, Water, Coffee") {
-              challenges = await db
-                .insert(schema.challenges)
-                .values([
+          if (course.title === "Swahili" && lesson.title === "The drink, Water, Coffee") {
+            challenges = await db
+              .insert(schema.challenges)
+              .values([
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: kinywaji",
+                  order: 1,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: maji",
+                  order: 2,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: kahawa",
+                  order: 3,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Kinywaji",
+                  order: 4,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Maji",
+                  order: 5,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Kahawa",
+                  order: 6,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: chai",
+                  order: 7,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: maziwa",
+                  order: 8,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Listen and repeat: divai",
+                  order: 9,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Chai",
+                  order: 10,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Maziwa",
+                  order: 11,
+                },
+                {
+                  lessonId: lesson.id,
+                  type: "SELECT",
+                  question: "Choose the correct translation: Divai",
+                  order: 12,
+                },
+              ])
+              .returning();
+
+            // For each challenge, insert challenge options
+            for (const challenge of challenges) {
+              if (challenge.order === 1) {
+                await db.insert(schema.challengeOptions).values([
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: kinywaji",
-                    order: 1,
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Kinywaji",
+                    imageSrc: "/drink.png",
+                    audioSrc: "/sw_kinywaji.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 2) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Maji",
+                    imageSrc: "/water.png",
+                    audioSrc: "/sw_maji.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 3) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Kahawa",
+                    imageSrc: "/coffee.png",
+                    audioSrc: "/sw_kahawa.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 4) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Drink",
+                    imageSrc: "/drink.png",
+                    audioSrc: "/sw_kinywaji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: maji",
-                    order: 2,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Water",
+                    imageSrc: "/water.png",
+                    audioSrc: "/sw_maji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: kahawa",
-                    order: 3,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Coffee",
+                    imageSrc: "/coffee.png",
+                    audioSrc: "/sw_kahawa.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 5) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Drink",
+                    imageSrc: "/drink.png",
+                    audioSrc: "/sw_kinywaji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Kinywaji",
-                    order: 4,
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Water",
+                    imageSrc: "/water.png",
+                    audioSrc: "/sw_maji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Maji",
-                    order: 5,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Coffee",
+                    imageSrc: "/coffee.png",
+                    audioSrc: "/sw_kahawa.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 6) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Drink",
+                    imageSrc: "/drink.png",
+                    audioSrc: "/sw_kinywaji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Kahawa",
-                    order: 6,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Water",
+                    imageSrc: "/water.png",
+                    audioSrc: "/sw_maji.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: chai",
-                    order: 7,
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Coffee",
+                    imageSrc: "/coffee.png",
+                    audioSrc: "/sw_kahawa.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 7) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Chai",
+                    imageSrc: "/tea.png",
+                    audioSrc: "/sw_chai.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 8) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Maziwa",
+                    imageSrc: "/milk.png",
+                    audioSrc: "/sw_maziwa.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 9) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Divai",
+                    imageSrc: "/wine.png",
+                    audioSrc: "/sw_divai.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 10) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Milk",
+                    imageSrc: "/milk.png",
+                    audioSrc: "/sw_maziwa.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: maziwa",
-                    order: 8,
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Tea",
+                    imageSrc: "/tea.png",
+                    audioSrc: "/sw_chai.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Listen and repeat: divai",
-                    order: 9,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Wine",
+                    imageSrc: "/wine.png",
+                    audioSrc: "/sw_divai.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 11) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Milk",
+                    imageSrc: "/milk.png",
+                    audioSrc: "/sw_maziwa.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Chai",
-                    order: 10,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Tea",
+                    imageSrc: "/tea.png",
+                    audioSrc: "/sw_chai.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Maziwa",
-                    order: 11,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Wine",
+                    imageSrc: "/wine.png",
+                    audioSrc: "/sw_divai.mp3",
+                  },
+                ]);
+              }
+
+              if (challenge.order === 12) {
+                await db.insert(schema.challengeOptions).values([
+                  {
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Milk",
+                    imageSrc: "/milk.png",
+                    audioSrc: "/sw_maziwa.mp3",
                   },
                   {
-                    lessonId: lesson.id,
-                    type: "SELECT",
-                    question: "Choose the correct translation: Divai",
-                    order: 12,
+                    challengeId: challenge.id,
+                    correct: false,
+                    text: "Tea",
+                    imageSrc: "/tea.png",
+                    audioSrc: "/sw_chai.mp3",
                   },
-                ])
-                .returning();
-          
-              // For each challenge, insert challenge options
-              for (const challenge of challenges) {
-                if (challenge.order === 1) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Kinywaji",
-                      imageSrc:"/drink.png",
-                      audioSrc: "/sw_kinywaji.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 2) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Maji",
-                      imageSrc:"/water.png",
-                      audioSrc: "/sw_maji.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 3) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Kahawa",
-                      imageSrc:"/coffee.png",
-                      audioSrc: "/sw_kahawa.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 4) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Drink",
-                      imageSrc: "/drink.png",
-                      audioSrc: "/sw_kinywaji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Water",
-                      imageSrc:"/water.png",
-                      audioSrc: "/sw_maji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Coffee",
-                      imageSrc:"/coffee.png",
-                      audioSrc: "/sw_kahawa.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 5) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Drink",
-                      imageSrc: "/drink.png",
-                      audioSrc: "/sw_kinywaji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Water",
-                      imageSrc: "/water.png",
-                      audioSrc: "/sw_maji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Coffee",
-                      imageSrc:"/coffee.png",
-                      audioSrc: "/sw_kahawa.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 6) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Drink",
-                      imageSrc: "/drink.png",
-                      audioSrc: "/sw_kinywaji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Water",
-                      imageSrc: "/water.png",
-                      audioSrc: "/sw_maji.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Coffee",
-                      imageSrc: "/coffee.png",
-                      audioSrc: "/sw_kahawa.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 7) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Chai",
-                      imageSrc:"/tea.png",
-                      audioSrc: "/sw_chai.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 8) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Maziwa",
-                      imageSrc:"/milk.png",
-                      audioSrc: "/sw_maziwa.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 9) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Divai",
-                      imageSrc:"/wine.png",
-                      audioSrc: "/sw_divai.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 10) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Milk",
-                      imageSrc:"/milk.png",
-                      audioSrc: "/sw_maziwa.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Tea",
-                      imageSrc: "/tea.png",
-                      audioSrc: "/sw_chai.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Wine",
-                      imageSrc:"/wine.png",
-                      audioSrc: "/sw_divai.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 11) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Milk",
-                      imageSrc: "/milk.png",
-                      audioSrc: "/sw_maziwa.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Tea",
-                      imageSrc:"/tea.png",
-                      audioSrc: "/sw_chai.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Wine",
-                      imageSrc:"/wine.png",
-                      audioSrc: "/sw_divai.mp3",
-                    },
-                  ]);
-                }
-          
-                if (challenge.order === 12) {
-                  await db.insert(schema.challengeOptions).values([
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Milk",
-                      imageSrc:"/milk.png",
-                      audioSrc: "/sw_maziwa.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: false,
-                      text: "Tea",
-                      imageSrc:"/tea.png",
-                      audioSrc: "/sw_chai.mp3",
-                    },
-                    {
-                      challengeId: challenge.id,
-                      correct: true,
-                      text: "Wine",
-                      imageSrc: "/wine.png",
-                      audioSrc: "/sw_divai.mp3",
-                    },
-                  ]);
-                }
+                  {
+                    challengeId: challenge.id,
+                    correct: true,
+                    text: "Wine",
+                    imageSrc: "/wine.png",
+                    audioSrc: "/sw_divai.mp3",
+                  },
+                ]);
               }
             }
           }
-          
+
           if (course.title === "Yoruba" && lesson.title === "Personal Introduction") {
             challenges = await db
               .insert(schema.challenges)
@@ -682,7 +682,7 @@ const main = async () => {
                 },
               ])
               .returning();
-          
+
             // For each challenge, insert challenge options
             for (const challenge of challenges) {
               if (challenge.order === 1) {
@@ -696,7 +696,7 @@ const main = async () => {
                   },
                 ]);
               }
-          
+
               if (challenge.order === 2) {
                 await db.insert(schema.challengeOptions).values([
                   {
@@ -708,7 +708,7 @@ const main = async () => {
                   },
                 ]);
               }
-          
+
               if (challenge.order === 3) {
                 await db.insert(schema.challengeOptions).values([
                   {
@@ -720,7 +720,7 @@ const main = async () => {
                   },
                 ]);
               }
-          
+
               if (challenge.order === 4) {
                 await db.insert(schema.challengeOptions).values([
                   {
@@ -737,142 +737,13 @@ const main = async () => {
                   },
                 ]);
               }
-          
+
               if (challenge.order === 5) {
                 await db.insert(schema.challengeOptions).values([
                   {
                     challengeId: challenge.id,
                     correct: true,
                     text: "Naijiria",
-                    audioSrc: "/yo_Naijiria.mp3",
-                  },
-                ]);
-              }
-          
-              if (challenge.order === 6) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: false,
-                    text: "mẹ́ta",
-                    audioSrc: "/yo_meta.mp3",
-                  },
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "mẹ́rìnlá",
-                    audioSrc: "/yo_merinla.mp3",
-                  },
-                ]);
-              }
-            }
-          }
-          
-          if (course.title === "Yoruba" && lesson.title === "Personal Introduction") {
-            challenges = await db
-              .insert(schema.challenges)
-              .values([
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Orukọ mi ni Durojaiye.",
-                  order: 1,
-                },
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Mo wa láti Nàìjíríà.",
-                  order: 2,
-                },
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Mo jẹ́ ẹni ọdún mẹ́rìnlá.",
-                  order: 3,
-                },
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Complete the sentence : Orukọ .......... Durojaiye.",
-                  order: 4,
-                },
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Complete the sentence : Mo wa láti ..........",
-                  order: 5,
-                },
-                {
-                  lessonId: lesson.id,
-                  type: "SELECT",
-                  question: "Complete the sentence : Mo jẹ́ ẹni ọdún ..........",
-                  order: 6,
-                },
-              ])
-              .returning();
-
-            // For each challenge, insert challenge options
-            for (const challenge of challenges) {
-              if (challenge.order === 1) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "My name is Durojaiye.",
-                    imageSrc: "/my_name_is.png",
-                    audioSrc: "/yo_oruko_mi_ni_Durojaiye.mp3",
-                  },
-                ]);
-              }
-
-              if (challenge.order === 2) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "I am from Nigeria.",
-                    imageSrc:"/fromnigeria.png",
-                    audioSrc: "/yo_mo_wa_lati_Naijiria.mp3",
-                  },
-                ]);
-              }
-
-              if (challenge.order === 3) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "I am fourteen years old.",
-                    imageSrc:"/14yo.png",
-                    audioSrc: "/yo_mo_je_eni_odun_merinla.mp3",
-                  },
-                ]);
-              }
-
-              if (challenge.order === 4) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: false,
-                    text: "ranu ni",
-                    audioSrc: "/yo_ranu_ni.mp3",
-                  },
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "mi ni",
-                    audioSrc: "/yo_mi_ni.mp3",
-                  },
-                ]);
-              }
-
-              if (challenge.order === 5) {
-                await db.insert(schema.challengeOptions).values([
-                  {
-                    challengeId: challenge.id,
-                    correct: true,
-                    text: "Nigeria",
-                    imageSrc:"/fromnigeria.png",
                     audioSrc: "/yo_Naijiria.mp3",
                   },
                 ]);
