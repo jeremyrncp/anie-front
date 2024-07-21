@@ -33,7 +33,7 @@ export const Sidebar = ({ className }: Props) => {
         <SidebarItem 
           label="Learn" 
           href="/(Icons & modals)/learn"
-          iconSrc="/hut.png"
+          iconSrc="/(Icons & modals)/hut.png"
         />
         <SidebarItem 
           label="Leaderboard" 
