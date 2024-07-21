@@ -56,7 +56,7 @@ export const Items = ({
     <ul className="w-full">
       <div className="flex items-center w-full p-4 gap-x-4 border-t-2">
         <Image
-          src="heart.svg"
+          src="/(Antonio)/(pictures)/heart.svg"
           alt="Heart"
           height={60}
           width={60}
@@ -79,7 +79,7 @@ export const Items = ({
             : (
               <div className="flex items-center">
                 <Image
-                  src="/points.svg"
+                  src="/(Antonio)/(pictures)/points.svg"
                   alt="Points"
                   height={20}
                   width={20}
@@ -94,7 +94,7 @@ export const Items = ({
       </div>
       <div className="flex items-center w-full p-4 pt-8 gap-x-4 border-t-2">
         <Image
-          src="/unlimited.svg"
+          src="/(Antonio)/(pictures)/unlimited.svg"
           alt="Unlimited"
           height={60}
           width={60}
