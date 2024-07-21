@@ -32,7 +32,7 @@ export const ExitModal = () => {
         <DialogHeader>
           <div className="flex items-center w-full justify-center mb-5">
             <Image
-              src="/Wait.png"
+              src="/(Icons & modals)/Wait.png"
               alt="Wait"
               height={50}
               width={200}
