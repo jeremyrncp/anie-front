@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="max-w-screen-lg mx-auto flex items-center justify-evenly h-full">
         <Button size="lg" variant="ghost" className="w-full">
           <Image 
-            src="/SwahiliFlag.jpg" 
+            src="/(Flags)/SwahiliFlag.jpg" 
             alt="Swahili" 
             height={32} 
             width={40}
@@ -17,7 +17,7 @@ export const Footer = () => {
         </Button>
         <Button size="lg" variant="ghost" className="w-full">
           <Image 
-            src="/YorubaFlag.png" 
+            src="/(Flags)/YorubaFlag.png" 
             alt="Yoruba" 
             height={32} 
             width={40}
@@ -27,7 +27,7 @@ export const Footer = () => {
         </Button>
         <Button size="lg" variant="ghost" className="w-full">
           <Image 
-            src="/AmharicFlag.png" 
+            src="/(Flags)/AmharicFlag.png" 
             alt="Amharic" 
             height={40} 
             width={50}
@@ -37,7 +37,7 @@ export const Footer = () => {
         </Button>
         <Button size="lg" variant="ghost" className="w-full">
           <Image 
-            src="/IgboFlag.png" 
+            src="/(Flags)/IgboFlag.png" 
             alt="Igbo" 
             height={32} 
             width={40}
@@ -47,7 +47,7 @@ export const Footer = () => {
         </Button>
         <Button size="lg" variant="ghost" className="w-full">
           <Image 
-            src="/ThreeDots.jpg" 
+            src="/(Icons & modals)/ThreeDots.jpg" 
             alt="ThreeDots" 
             height={32} 
             width={40}

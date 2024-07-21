@@ -43,7 +43,7 @@ const QuestsPage = async () => {
       <FeedWrapper>
         <div className="w-full flex flex-col items-center">
           <Image
-            src="/quests.png"
+            src="/(Icons & modals)/quests.png"
             alt="Quests"
             height={90}
             width={90}
