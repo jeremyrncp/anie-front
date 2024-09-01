@@ -75,7 +75,7 @@ const main = async () => {
               if (challenge.order === 2) {
                 await db.insert(schema.challengeOptions).values([
                   { challengeId: challenge.id, correct: true, text: "Habari", audioSrc: "/sw_habari.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Habali", audioSrc: "//sw_habali.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Habali", audioSrc: "/sw_habali.mp3" },
                 ]);
               }
 
