@@ -29,6 +29,13 @@ const main = async () => {
       .values([
         { title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
         { title: "Yoruba", imageSrc: "/YorubaFlag.png" },
+        { title: "Dazaga", imageSrc: "/DazagaFlag.png" },
+        { title: "Igbo", imageSrc: "/IgboFlag.png" },
+        { title: "Amharic", imageSrc: "/AmharicFlag.png" },
+        { title: "Hausa", imageSrc: "/HausaFlag.png" },
+        { title: "Sotho", imageSrc: "/SothoFlag.png" },
+        { title: "Zulu", imageSrc: "/ZuluFlag.png" },
+        { title: "Shona", imageSrc: "/ShonaFlag.png" },
       ])
       .returning();
 
