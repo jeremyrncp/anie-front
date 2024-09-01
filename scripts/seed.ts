@@ -25,22 +25,22 @@ const main = async () => {
       {
         id: 1,
         title: "Sawhili",
-        imageSrc: "/(Flags)/SwahiliFlag.jpg",
+        imageSrc: "/SwahiliFlag.jpg",
       },
       {
         id: 2,
         title: "Yoruba",
-        imageSrc: "/(Flags)/YorubaFlag.png",
+        imageSrc: "/YorubaFlag.png",
       },
       {
         id: 3,
         title: "Amharic",
-        imageSrc: "/(Flags)/AmharicFlag.png",
+        imageSrc: "/AmharicFlag.png",
       },
       {
         id: 4,
         title: "Igbo",
-        imageSrc: "/(Flags)/IgboFlag.png",
+        imageSrc: "/IgboFlag.png",
       },
     ]);
 
@@ -114,24 +114,24 @@ const main = async () => {
     await db.insert(schema.challengeOptions).values([
       {
         challengeId: 1, // Which one of these is "the man"?
-        imageSrc: "/(Quiz pictures)/man.png",
+        imageSrc: "/man.png",
         correct: true,
         text: "Mwanaume",
-        audioSrc: "/(Swahili)/audios/sw_man.mp3",
+        audioSrc: "/sw_man.mp3",
       },
       {
         challengeId: 1,
-        imageSrc: "/(Quiz pictures)/woman.png",
+        imageSrc: "/woman.png",
         correct: false,
         text: "Mke",
-        audioSrc: "/(Swahili)/audios/sw_woman.mp3",
+        audioSrc: "/sw_woman.mp3",
       },
       {
         challengeId: 1,
-        imageSrc: "/(Quiz pictures)/robot.png",
+        imageSrc: "/robot.png",
         correct: false,
         text: "Roboti",
-        audioSrc: "/(Swahili)/audios/sw_robot.mp3",
+        audioSrc: "/sw_robot.mp3",
       },
     ]);
 
@@ -140,43 +140,43 @@ const main = async () => {
         challengeId: 2, // "the man"?
         correct: true,
         text: "Mwanaume",
-        audioSrc: "/(Swahili)/audios/sw_man.mp3",
+        audioSrc: "/sw_man.mp3",
       },
       {
         challengeId: 2,
         correct: false,
         text: "Mke",
-        audioSrc: "/(Swahili)/audios/sw_woman.mp3",
+        audioSrc: "/sw_woman.mp3",
       },
       {
         challengeId: 2,
         correct: false,
         text: "Roboti",
-        audioSrc: "/(Swahili)/audios/sw_robot.mp3",
+        audioSrc: "/sw_robot.mp3",
       },
     ]);
 
     await db.insert(schema.challengeOptions).values([
       {
         challengeId: 3, // Which one of these is the "the robot"?
-        imageSrc: "/(Quiz pictures)/man.png",
+        imageSrc: "/man.png",
         correct: false,
         text: "Mwanaume",
-        audioSrc: "/(Swahili)/audios/sw_man.mp3",
+        audioSrc: "/sw_man.mp3",
       },
       {
         challengeId: 3,
-        imageSrc: "/(Quiz pictures)/woman.png",
+        imageSrc: "/woman.png",
         correct: false,
         text: "Mke",
-        audioSrc: "/(Swahili)/audios/sw_woman.mp3",
+        audioSrc: "/sw_woman.mp3",
       },
       {
         challengeId: 3,
-        imageSrc: "/(Quiz pictures)/robot.png",
+        imageSrc: "/robot.png",
         correct: true,
         text: "Roboti",
-        audioSrc: "/(Swahili)/audios/sw_robot.mp3",
+        audioSrc: "/sw_robot.mp3",
       },
     ]);
 
