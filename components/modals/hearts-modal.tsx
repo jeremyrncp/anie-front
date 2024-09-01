@@ -37,7 +37,7 @@ export const HeartsModal = () => {
         <DialogHeader>
           <div className="flex items-center w-full justify-center mb-5">
             <Image
-              src="/(Icons & modals)/PumbaSad.jpg"
+              src="/PumbaSad.jpg"
               alt="Pumba"
               height={50}
               width={200}

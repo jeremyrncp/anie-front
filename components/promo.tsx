@@ -9,7 +9,7 @@ export const Promo = () => {
       <div className="space-y-2">
         <div className="flex items-center gap-x-2">
           <Image
-            src="/(Antonio)/(pictures)/unlimited.svg"
+            src="/unlimited.svg"
             alt="Pro"
             height={26}
             width={26}

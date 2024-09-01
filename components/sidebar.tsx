@@ -23,7 +23,7 @@ export const Sidebar = ({ className }: Props) => {
     )}>
       <Link href="/learn">
         <div className="pt-8 pl-4 pb-7 flex items-center gap-x-1">
-          <Image src="/(Icons & modals)/logodazaga.png" height={50} width={50} alt="Logo" />
+          <Image src="/logodazaga.png" height={50} width={50} alt="Logo" />
           <h1 className="text-2xl font-extrabold text-red-600 tracking-wide">
             Dazagara
           </h1>
@@ -33,22 +33,22 @@ export const Sidebar = ({ className }: Props) => {
         <SidebarItem 
           label="Learn" 
           href="/learn"
-          iconSrc="/(Icons & modals)/hut.png"
+          iconSrc="/hut.png"
         />
         <SidebarItem 
           label="Leaderboard" 
           href="/leaderboard"
-          iconSrc="/(Icons & modals)/leaderboard.png"
+          iconSrc="/leaderboard.png"
         />
         <SidebarItem 
           label="quests" 
           href="/quests"
-          iconSrc="/(Icons & modals)/quests.png"
+          iconSrc="/quests.png"
         />
         <SidebarItem 
           label="shop" 
           href="/shop"
-          iconSrc="/(Icons & modals)/handbag.png"
+          iconSrc="/handbag.png"
         />
       </div>
       <div className="p-4">

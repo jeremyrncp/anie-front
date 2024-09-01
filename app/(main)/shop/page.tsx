@@ -45,7 +45,7 @@ const ShopPage = async () => {
       <FeedWrapper>
         <div className="w-full flex flex-col items-center">
           <Image
-            src="/(Icons & modals)/handbag.png"
+            src="/handbag.png"
             alt="Shop"
             height={90}
             width={90}

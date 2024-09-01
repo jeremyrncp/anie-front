@@ -27,8 +27,8 @@ const main = async () => {
     const courses = await db
       .insert(schema.courses)
       .values([
-        { title: "Swahili", imageSrc: "/(Flags)/SwahiliFlag.jpg" },
-        { title: "Yoruba", imageSrc: "/(Flags)/YorubaFlag.png" },
+        { title: "Swahili", imageSrc: "/SwahiliFlag.jpg" },
+        { title: "Yoruba", imageSrc: "/YorubaFlag.png" },
       ])
       .returning();
 
@@ -68,40 +68,40 @@ const main = async () => {
             for (const challenge of challenges) {
               if (challenge.order === 1) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Hello", imageSrc: "/(Quiz pictures)/hello.png", audioSrc: "/(Swahili)/audios/sw_habari.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Hello", imageSrc: "/hello.png", audioSrc: "/sw_habari.mp3" },
                 ]);
               }
 
               if (challenge.order === 2) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Habari", audioSrc: "/(Swahili)/audios/sw_habari.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Habali", audioSrc: "/(Swahili)/audios/sw_habali.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Habari", audioSrc: "/sw_habari.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Habali", audioSrc: "//sw_habali.mp3" },
                 ]);
               }
 
               if (challenge.order === 3) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "My name is Tendaji", imageSrc: "/(Quiz pictures)/my_name_is.png", audioSrc: "/(Swahili)/audios/sw_jina_langu_ni_Tendaji.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "My name is Tendaji", imageSrc: "/my_name_is.png", audioSrc: "/sw_jina_langu_ni_Tendaji.mp3" },
                 ]);
               }
 
               if (challenge.order === 4) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "lanu ni", audioSrc: "/(Swahili)/audios/sw_lanu_ni.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "langu ni", audioSrc: "/(Swahili)/audios/sw_langu_ni.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "lanu ni", audioSrc: "/sw_lanu_ni.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "langu ni", audioSrc: "/sw_langu_ni.mp3" },
                 ]);
               }
 
               if (challenge.order === 5) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "What is your name ?", imageSrc: "/(Quiz pictures)/whatsyourname.png", audioSrc: "/(Swahili)/audios/sw_jina_lako_nani.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "What is your name ?", imageSrc: "/whatsyourname.png", audioSrc: "/sw_jina_lako_nani.mp3" },
                 ]);
               }
 
               if (challenge.order === 6) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "jina lako", audioSrc: "/(Swahili)/audios/sw_jina_lako.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "jena lako", audioSrc: "/(Swahili)/audios/sw_jena_lako.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "jina lako", audioSrc: "/sw_jina_lako.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "jena lako", audioSrc: "/sw_jena_lako.mp3" },
                 ]);
               }
             }
@@ -145,157 +145,157 @@ const main = async () => {
             for (const challenge of challenges) {
               if (challenge.order === 1) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Food", imageSrc: "/(Quiz pictures)/food.png", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Food", imageSrc: "/food.png", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
 
               if (challenge.order === 2) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Yam", imageSrc: "/(Quiz pictures)/yam.png", audioSrc: "/(Yoruba)/audios/yo_isu.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Yam", imageSrc: "/yam.png", audioSrc: "/yo_isu.mp3" },
                 ]);
               }
 
               if (challenge.order === 3) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Fish", imageSrc: "/(Quiz pictures)/fish.png", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Fish", imageSrc: "/fish.png", audioSrc: "/yo_eja.mp3" },
                 ]);
               }
 
               if (challenge.order === 4) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Yam", audioSrc: "/(Yoruba)/audios/yo_isu.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Yam", audioSrc: "/yo_isu.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Food", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
 
               if (challenge.order === 5) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Yam", audioSrc: "/(Yoruba)/audios/yo_isu.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Yam", audioSrc: "/yo_isu.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
 
               if (challenge.order === 6) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Yam", audioSrc: "/(Yoruba)/audios/yo_isu.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Yam", audioSrc: "/yo_isu.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Fish", audioSrc: "/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
 
               if (challenge.order === 7) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Yam", audioSrc: "/(Yoruba)/audios/yo_isu.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Food", audioSrc: "/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Yam", audioSrc: "/yo_isu.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Fish", audioSrc: "/yo_eja.mp3" },
                 ]);
               }
 
               if (challenge.order === 8) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Rice", imageSrc: "/(Quiz pictures)/rice.png", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Rice", imageSrc: "/rice.png", audioSrc: "/yo_iresi.mp3" },
                 ]);
               }
 
               if (challenge.order === 9) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Beans cake", imageSrc: "/(Quiz pictures)/beans_cake.png", audioSrc: "/(Yoruba)/audios/yo_akara.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Beans cake", imageSrc: "/beans_cake.png", audioSrc: "/yo_akara.mp3" },
                 ]);
               }
 
               if (challenge.order === 10) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Beans cake", imageSrc: "/(Quiz pictures)/beans_cake.png", audioSrc: "/(Yoruba)/audios/yo_moinmoin.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Beans cake", imageSrc: "/beans_cake.png", audioSrc: "/yo_moinmoin.mp3" },
                 ]);
               }
 
               if (challenge.order === 11) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Rice", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Beans cake", audioSrc: "/(Yoruba)/audios/yo_akara.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Rice", audioSrc: "/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Beans cake", audioSrc: "/yo_akara.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
                 ]);
               }
 
               if (challenge.order === 12) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/(Yoruba)/audios/yo_akara.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/yo_akara.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
                 ]);
               }
 
               if (challenge.order === 13) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/(Yoruba)/audios/yo_moinmoin.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/yo_moinmoin.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
                 ]);
               }
 
               if (challenge.order === 14) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Oil", imageSrc: "/(Quiz pictures)/oil.png", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Oil", imageSrc: "/oil.png", audioSrc: "/yo_epo.mp3" },
                 ]);
               }
 
               if (challenge.order === 15) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Water", imageSrc: "/(Quiz pictures)/water.png", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Water", imageSrc: "/water.png", audioSrc: "/yo_omi.mp3" },
                 ]);
               }
 
               if (challenge.order === 16) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Butter", imageSrc: "/(Quiz pictures)/butter.png", audioSrc: "/(Yoruba)/audios/yo_bota.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Butter", imageSrc: "/butter.png", audioSrc: "/yo_bota.mp3" },
                 ]);
               }
 
               if (challenge.order === 17) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Oil", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Butter", audioSrc: "/(Yoruba)/audios/yo_bota.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Oil", audioSrc: "/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Butter", audioSrc: "/yo_bota.mp3" },
                 ]);
               }
 
               if (challenge.order === 18) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Water", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Butter", audioSrc: "/(Yoruba)/audios/yo_bota.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Water", audioSrc: "/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Butter", audioSrc: "/yo_bota.mp3" },
                 ]);
               }
 
               if (challenge.order === 19) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Butter", audioSrc: "/(Yoruba)/audios/yo_bota.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Butter", audioSrc: "/yo_bota.mp3" },
                 ]);
               }
 
               if (challenge.order === 20) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: true, text: "Rice", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Beans cake", audioSrc: "/(Yoruba)/audios/yo_akara.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Rice", audioSrc: "/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Beans cake", audioSrc: "/yo_akara.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
 
               if (challenge.order === 21) {
                 await db.insert(schema.challengeOptions).values([
-                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/(Yoruba)/audios/yo_iresi.mp3" },
-                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/(Yoruba)/audios/yo_akara.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/(Yoruba)/audios/yo_eja.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/(Yoruba)/audios/yo_epo.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/(Yoruba)/audios/yo_omi.mp3" },
-                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/(Yoruba)/audios/yo_ounje.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Rice", audioSrc: "/yo_iresi.mp3" },
+                  { challengeId: challenge.id, correct: true, text: "Beans cake", audioSrc: "/yo_akara.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Fish", audioSrc: "/yo_eja.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Oil", audioSrc: "/yo_epo.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Water", audioSrc: "/yo_omi.mp3" },
+                  { challengeId: challenge.id, correct: false, text: "Food", audioSrc: "/yo_ounje.mp3" },
                 ]);
               }
             }
