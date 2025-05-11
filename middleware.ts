@@ -1,9 +1,4 @@
-import { authMiddleware } from "@clerk/nextjs/server";
 
-export default authMiddleware({
-  publicRoutes: ["/", "/api/webhooks/stripe"],
-});
-
-export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
-};
+export default function timeLogger() {
+  console.log(`Received request at: ${new Date().toISOString()}`);
+}

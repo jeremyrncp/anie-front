@@ -1,13 +1,5 @@
 import Image from "next/image";
 import { Loader, MapPin, Phone, Mail, Briefcase } from "lucide-react";
-import { 
-  ClerkLoaded, 
-  ClerkLoading,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 
 export const Header = () => {
@@ -48,25 +40,6 @@ export const Header = () => {
               Guichet Unique
             </h1>
           </div>
-
-          {/* Chargement Clerk */}
-          <ClerkLoading>
-            <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
-          </ClerkLoading>
-
-          {/* Authentification Clerk */}
-          <ClerkLoaded>
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-            <SignedOut>
-              <SignInButton mode="modal" forceRedirectUrl="/infos">
-                <Button size="lg" variant="ghost">
-                  Connexion
-                </Button>
-              </SignInButton>
-            </SignedOut>
-          </ClerkLoaded>
         </div>
       </div>
     </header>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import {ClerkProvider} from '@clerk/nextjs'
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import { ExitModal } from "@/components/modals/exit-modal";
@@ -21,7 +20,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
       <html lang="fr">
         <body className={font.className}>
           <Toaster />
@@ -31,6 +29,5 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </ClerkProvider>
   );
 }

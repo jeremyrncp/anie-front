@@ -1,11 +1,3 @@
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut
-} from "@clerk/nextjs";
 import { Loader, ArrowRight, FileText, UserPlus, Shield, Calculator, Mail } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -28,30 +20,6 @@ export default function Home() {
           Créez votre entreprise en ligne.
         </h1>
         <div className="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
-          <ClerkLoading>
-            <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
-          </ClerkLoading>
-          <ClerkLoaded>
-            <SignedOut>
-              <SignUpButton mode="modal" forceRedirectUrl="/infos">
-                <Button size="lg" variant="aniestyle" className="w-full">
-                  Créer un compte
-                </Button>
-              </SignUpButton>
-              <SignInButton mode="modal" forceRedirectUrl="/infos">
-                <Button size="lg" variant="primaryOutline" className="w-full">
-                  J'ai déjà un compte
-                </Button>
-              </SignInButton>
-            </SignedOut>
-            <SignedIn>
-              <Button size="lg" variant="aniestyle" className="w-full" asChild>
-                <Link href="/infos">
-                  Continuer vers le site
-                </Link>
-              </Button>
-            </SignedIn>
-          </ClerkLoaded>
         </div>
       </div>
     </div>
